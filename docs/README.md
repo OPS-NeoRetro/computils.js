@@ -4,4 +4,5 @@ This directory contains documents for CUDA Fatbin, HIP Fatbin, Microsoft Portabl
 
 ## Additional Links
 
-[NVIDIA documentation](nvidia/)
+- [NVIDIA documentation](nvidia/)
+- [AMD GPU documentation](amd/)

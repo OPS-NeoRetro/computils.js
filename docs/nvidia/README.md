@@ -1,6 +1,6 @@
 # NVIDIA GPU Tools for JavaScript Documentation
 
-This document folder includes documentation for PTX, SASS, NVIDIA GPUs/SoCs and others related to NVIDIA products.
+This document folder includes documentation for PTX, SASS, NVIDIA GPUs/SoCs, CUDA Fatbins and others related to NVIDIA products.
 
 ## Additional Links
 
