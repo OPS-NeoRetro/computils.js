@@ -6,3 +6,4 @@ This directory contains documents for CUDA Fatbin, HIP Fatbin, Microsoft Portabl
 
 - [NVIDIA documentation](nvidia/)
 - [AMD GPU documentation](amd/)
+- [SPIR-V file format documentation](spv/)
