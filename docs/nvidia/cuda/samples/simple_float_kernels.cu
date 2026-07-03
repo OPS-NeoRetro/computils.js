@@ -43,6 +43,13 @@ __global__ void gpuVectorMax(float* x, float* y, float* z, unsigned int n) {
     }
 }
 
+__global__ void gpuVectorClamp(float* x, float* y0, float* y1, float* z, unsigned int n) {
+    int threadID = blockDim.x * blockIdx.x + threadIdx.x;
+    if (threadID < n) {
+        z[threadID] = max(min(x[threadID], y0[threadID]), y1[threadID]);
+    }
+}
+
 __global__ void gpuVectorSin(float* x, float* y, unsigned int n) {
     int threadID = blockDim.x * blockIdx.x + threadIdx.x;
     if (threadID < n) {

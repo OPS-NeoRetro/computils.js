@@ -1,0 +1,658 @@
+_Z12gpuVectorErfPfS_j:
+ MOV R1, c[0x0][0x20] 
+ S2R R0, SR_CTAID.X 
+ S2R R2, SR_TID.X 
+ XMAD.MRG R3, R0.reuse, c[0x0] [0x8].H1, RZ 
+ XMAD R2, R0.reuse, c[0x0] [0x8], R2 
+ XMAD.PSL.CBCC R0, R0.H1, R3.H1, R2 
+ ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x150], PT 
+ NOP 
+ @P0 EXIT 
+ SHR R3, R0.reuse, 0x1e 
+ ISCADD R2.CC, R0, c[0x0][0x140], 0x2 
+ IADD.X R3, R3, c[0x0][0x144] 
+ LDG.E R2, [R2] 
+ MOV32I R6, 0x38eb4c3a 
+ MOV32I R7, 0xbaae005b 
+ MOV32I R8, 0x3c09919f 
+ MOV32I R9, 0xbd24d99a 
+ FSETP.GE.FTZ.AND P0, PT, |R2|, c[0x2][0x0], PT 
+ FADD.FTZ R4, |R2|, -RZ 
+ FMUL.FTZ R5, R2, R2 
+ SEL R5, R4, R5, P0 
+ SEL R6, R6, c[0x2][0x4], P0 
+ SEL R7, R7, c[0x2][0x8], P0 
+ SEL R3, R8, c[0x2][0xc], P0 
+ FFMA.FTZ R6, R5, R6, R7 
+ MOV32I R7, 0x3e235519 
+ SEL R8, R9, c[0x2][0x10], P0 
+ FFMA.FTZ R3, R5, R6, R3 
+ MOV32I R9, 0x3f69b4f9 
+ SEL R6, R7, c[0x2][0x14], P0 
+ FFMA.FTZ R3, R5, R3, R8 
+ MOV32I R7, 0x3f210a14 
+ SEL R8, R9, c[0x2][0x18], P0 
+ FFMA.FTZ R3, R5, R3, R6 
+ SEL R6, R7, c[0x2][0x1c], P0 
+ FADD.FTZ R4, -R4, -RZ 
+ FFMA.FTZ R3, R5, R3, R8 
+ SEL R4, R4, R2, P0 
+ FFMA.FTZ R3, R5, R3, R6 
+ FFMA.FTZ R3, R3, R4, R4 
+ @P0 RRO.EX2 R6, R3 
+ @P0 MUFU.EX2 R6, R6 
+ SHR R5, R0.reuse, 0x1f 
+ LEA R4.CC, R0.reuse, c[0x0][0x148], 0x2 
+ LEA.HI.X R5, R0, c[0x0][0x14c], R5, 0x2 
+ @P0 FADD.FTZ R0, -R6, 1 
+ @P0 LOP3.LUT R3, R0, c[0x2][0x20], R2, 0xf8 
+ STG.E [R4], R3 
+ EXIT 
+.L_x_0:
+ BRA `(.L_x_0) 
+ NOP
+ NOP
+ NOP
+ NOP
+.L_x_26:
+_Z14gpuVectorRsqrtPfS_j:
+ MOV R1, c[0x0][0x20] 
+ S2R R0, SR_CTAID.X 
+ S2R R2, SR_TID.X 
+ XMAD.MRG R3, R0.reuse, c[0x0] [0x8].H1, RZ 
+ XMAD R2, R0.reuse, c[0x0] [0x8], R2 
+ XMAD.PSL.CBCC R0, R0.H1, R3.H1, R2 
+ ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x150], PT 
+ NOP 
+ @P0 EXIT 
+ SHL R4, R0.reuse, 0x2 
+ SHR R0, R0, 0x1e 
+ IADD R2.CC, R4, c[0x0][0x140] 
+ IADD.X R3, R0, c[0x0][0x144] 
+ LDG.E R2, [R2] 
+ IADD R4.CC, R4, c[0x0][0x148] 
+ IADD.X R5, R0, c[0x0][0x14c] 
+ MUFU.RSQ R6, R2 
+ STG.E [R4], R6 
+ NOP 
+ EXIT 
+.L_x_1:
+ BRA `(.L_x_1) 
+ NOP
+ NOP
+ NOP
+.L_x_27:
+_Z13gpuVectorSqrtPfS_j:
+ MOV R1, c[0x0][0x20] 
+ S2R R0, SR_CTAID.X 
+ S2R R2, SR_TID.X 
+ XMAD.MRG R3, R0.reuse, c[0x0] [0x8].H1, RZ 
+ XMAD R2, R0.reuse, c[0x0] [0x8], R2 
+ XMAD.PSL.CBCC R0, R0.H1, R3.H1, R2 
+ ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x150], PT 
+ NOP 
+ @P0 EXIT 
+ SHL R4, R0.reuse, 0x2 
+ SHR R0, R0, 0x1e 
+ IADD R2.CC, R4, c[0x0][0x140] 
+ IADD.X R3, R0, c[0x0][0x144] 
+ LDG.E R2, [R2] 
+ IADD R4.CC, R4, c[0x0][0x148] 
+ IADD.X R5, R0, c[0x0][0x14c] 
+ MUFU.SQRT R6, R2 
+ STG.E [R4], R6 
+ NOP 
+ EXIT 
+.L_x_2:
+ BRA `(.L_x_2) 
+ NOP
+ NOP
+ NOP
+.L_x_28:
+_Z14gpuVectorLog10PfS_j:
+ MOV R1, c[0x0][0x20] 
+ S2R R0, SR_CTAID.X 
+ S2R R2, SR_TID.X 
+ XMAD.MRG R3, R0.reuse, c[0x0] [0x8].H1, RZ 
+ XMAD R2, R0.reuse, c[0x0] [0x8], R2 
+ XMAD.PSL.CBCC R0, R0.H1, R3.H1, R2 
+ ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x150], PT 
+ NOP 
+ @P0 EXIT 
+ SHL R4, R0.reuse, 0x2 
+ SHR R5, R0, 0x1e 
+ IADD R2.CC, R4, c[0x0][0x140] 
+ IADD.X R3, R5, c[0x0][0x144] 
+ LDG.E R2, [R2] 
+ IADD R4.CC, R4, c[0x0][0x148] 
+ IADD.X R5, R5, c[0x0][0x14c] 
+ MUFU.LG2 R0, R2 
+ FMUL32I.FTZ R6, R0, 0.30103000998497009277 
+ STG.E [R4], R6 
+ NOP 
+ EXIT 
+.L_x_3:
+ BRA `(.L_x_3) 
+ NOP
+ NOP
+.L_x_29:
+_Z13gpuVectorLog2PfS_j:
+ MOV R1, c[0x0][0x20] 
+ S2R R0, SR_CTAID.X 
+ S2R R2, SR_TID.X 
+ XMAD.MRG R3, R0.reuse, c[0x0] [0x8].H1, RZ 
+ XMAD R2, R0.reuse, c[0x0] [0x8], R2 
+ XMAD.PSL.CBCC R0, R0.H1, R3.H1, R2 
+ ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x150], PT 
+ NOP 
+ @P0 EXIT 
+ SHL R4, R0.reuse, 0x2 
+ SHR R0, R0, 0x1e 
+ IADD R2.CC, R4, c[0x0][0x140] 
+ IADD.X R3, R0, c[0x0][0x144] 
+ LDG.E R2, [R2] 
+ IADD R4.CC, R4, c[0x0][0x148] 
+ IADD.X R5, R0, c[0x0][0x14c] 
+ MUFU.LG2 R6, R2 
+ STG.E [R4], R6 
+ NOP 
+ EXIT 
+.L_x_4:
+ BRA `(.L_x_4) 
+ NOP
+ NOP
+ NOP
+.L_x_30:
+_Z12gpuVectorLogPfS_j:
+ MOV R1, c[0x0][0x20] 
+ S2R R0, SR_CTAID.X 
+ S2R R2, SR_TID.X 
+ XMAD.MRG R3, R0.reuse, c[0x0] [0x8].H1, RZ 
+ XMAD R2, R0.reuse, c[0x0] [0x8], R2 
+ XMAD.PSL.CBCC R0, R0.H1, R3.H1, R2 
+ ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x150], PT 
+ NOP 
+ @P0 EXIT 
+ SHL R4, R0.reuse, 0x2 
+ SHR R5, R0, 0x1e 
+ IADD R2.CC, R4, c[0x0][0x140] 
+ IADD.X R3, R5, c[0x0][0x144] 
+ LDG.E R2, [R2] 
+ IADD R4.CC, R4, c[0x0][0x148] 
+ IADD.X R5, R5, c[0x0][0x14c] 
+ MUFU.LG2 R0, R2 
+ FMUL32I.FTZ R6, R0, 0.69314718246459960938 
+ STG.E [R4], R6 
+ NOP 
+ EXIT 
+.L_x_5:
+ BRA `(.L_x_5) 
+ NOP
+ NOP
+.L_x_31:
+_Z12gpuVectorExpPfS_j:
+ MOV R1, c[0x0][0x20] 
+ S2R R0, SR_CTAID.X 
+ S2R R2, SR_TID.X 
+ XMAD.MRG R3, R0.reuse, c[0x0] [0x8].H1, RZ 
+ XMAD R2, R0.reuse, c[0x0] [0x8], R2 
+ XMAD.PSL.CBCC R0, R0.H1, R3.H1, R2 
+ ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x150], PT 
+ NOP 
+ @P0 EXIT 
+ SHL R4, R0.reuse, 0x2 
+ SHR R5, R0, 0x1e 
+ IADD R2.CC, R4, c[0x0][0x140] 
+ IADD.X R3, R5, c[0x0][0x144] 
+ LDG.E R2, [R2] 
+ IADD R4.CC, R4, c[0x0][0x148] 
+ IADD.X R5, R5, c[0x0][0x14c] 
+ FMUL32I.FTZ R0, R2, 1.4426950216293334961 
+ RRO.EX2 R0, R0 
+ MUFU.EX2 R6, R0 
+ STG.E [R4], R6 
+ NOP 
+ EXIT 
+.L_x_6:
+ BRA `(.L_x_6) 
+ NOP
+.L_x_32:
+_Z13gpuVectorTanhPfS_j:
+ MOV R1, c[0x0][0x20] 
+ S2R R0, SR_CTAID.X 
+ S2R R2, SR_TID.X 
+ XMAD.MRG R3, R0.reuse, c[0x0] [0x8].H1, RZ 
+ XMAD R2, R0.reuse, c[0x0] [0x8], R2 
+ XMAD.PSL.CBCC R0, R0.H1, R3.H1, R2 
+ ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x150], PT 
+ NOP 
+ @P0 EXIT 
+ SHL R8, R0.reuse, 0x2 
+ SHR R9, R0, 0x1e 
+ IADD R2.CC, R8, c[0x0][0x140] 
+ IADD.X R3, R9, c[0x0][0x144] 
+ LDG.E R0, [R2] 
+ MOV32I R5, 0x3d563cae 
+ MOV32I R3, 0x3f800000 
+ IADD R2.CC, R8, c[0x0][0x148] 
+ FADD R4, |R0|, -RZ 
+ FMUL32I.FTZ R4, R4, 2.8853900432586669922 
+ RRO.EX2 R7, R4 
+ MUFU.EX2 R4, R7 
+ FMUL.FTZ R6, R0.reuse, R0 
+ FSETP.GE.FTZ.AND P0, PT, |R0|, c[0x2][0x0], PT 
+ FFMA.FTZ R5, R6, c[0x2][0x8], -R5 
+ FADD.FTZ R4, R4, 1 
+ MUFU.RCP R4, R4 
+ FFMA.FTZ R5, R6, R5, c[0x2][0xc] 
+ FSETP.GE.FTZ.AND P1, PT, |R0|, c[0x2][0x14], PT 
+ FFMA.FTZ R7, R6, R5, c[0x2][0x10] 
+ FFMA.FTZ R3, R4, -2, R3 
+ FFMA.FTZ R7, R6, R7, RZ 
+ SEL R5, R3, c[0x2][0x4], !P0 
+ IADD.X R3, R9, c[0x0][0x14c] 
+ LOP3.LUT R5, R5, c[0x2][0x18], R0, 0xf8 
+ @!P1 FFMA.FTZ R5, R0, R7, R0 
+ STG.E [R2], R5 
+ EXIT 
+.L_x_7:
+ BRA `(.L_x_7) 
+ NOP
+ NOP
+ NOP
+ NOP
+.L_x_33:
+_Z13gpuVectorCoshPfS_j:
+ MOV R1, c[0x0][0x20] 
+ S2R R0, SR_CTAID.X 
+ S2R R2, SR_TID.X 
+ XMAD.MRG R3, R0.reuse, c[0x0] [0x8].H1, RZ 
+ XMAD R2, R0.reuse, c[0x0] [0x8], R2 
+ XMAD.PSL.CBCC R0, R0.H1, R3.H1, R2 
+ ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x150], PT 
+ NOP 
+ @P0 EXIT 
+ SHL R7, R0.reuse, 0x2 
+ SHR R8, R0, 0x1e 
+ IADD R2.CC, R7, c[0x0][0x140] 
+ IADD.X R3, R8, c[0x0][0x144] 
+ LDG.E R3, [R2] 
+ FADD R6, |R3|, -RZ 
+ FMUL32I.FTZ R0, R6, 1.4426950216293334961 
+ F2F.F32.F32.TRUNC R4, R0 
+ FSETP.GT.FTZ.AND P0, PT, |R4|, 126, PT 
+ LOP32I.AND R5, R4, 0x80000000 
+ @P0 LOP32I.OR R4, R5, 0x42fc0000 
+ FFMA.FTZ R5, R4, c[0x2][0x0], R6 
+ FFMA.FTZ R5, R4, c[0x2][0x4], R5 
+ FMUL32I.FTZ R5, R5, 1.4426950216293334961 
+ FADD32I.FTZ R4, R4, 12583037 
+ RRO.EX2 R6, R5 
+ MUFU.EX2 R2, R6 
+ SHL R4, R4, 0x17 
+ FMUL.FTZ R4, R4, R2 
+ MUFU.RCP R5, R4 
+ FSETP.GE.FTZ.AND P0, PT, |R3|, 90, PT 
+ IADD R2.CC, R7, c[0x0][0x148] 
+ FMUL.FTZ R5, R5, 0.125 
+ FFMA.FTZ R5, R4, 2, R5 
+ IADD.X R3, R8, c[0x0][0x14c] 
+ SEL R5, R5, c[0x2][0x8], !P0 
+ STG.E [R2], R5 
+ EXIT 
+.L_x_8:
+ BRA `(.L_x_8) 
+ NOP
+ NOP
+ NOP
+ NOP
+.L_x_34:
+_Z13gpuVectorSinhPfS_j:
+ MOV R1, c[0x0][0x20] 
+ S2R R0, SR_CTAID.X 
+ S2R R2, SR_TID.X 
+ XMAD.MRG R3, R0.reuse, c[0x0] [0x8].H1, RZ 
+ XMAD R2, R0.reuse, c[0x0] [0x8], R2 
+ XMAD.PSL.CBCC R0, R0.H1, R3.H1, R2 
+ ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x150], PT 
+ NOP 
+ @P0 EXIT 
+ SHR R3, R0.reuse, 0x1e 
+ SSY `(.L_x_9)         
+ ISCADD R2.CC, R0, c[0x0][0x140], 0x2 
+ IADD.X R3, R3, c[0x0][0x144] 
+ LDG.E R2, [R2] 
+ SHR R6, R0, 0x1f 
+ FSETP.GE.FTZ.AND P0, PT, |R2|, 1, PT 
+ @!P0 BRA `(.L_x_10) 
+ FADD R7, |R2|, -RZ 
+ FMUL32I.FTZ R3, R7, 1.4426950216293334961 
+ F2F.F32.F32.TRUNC R4, R3 
+ FSETP.GT.FTZ.AND P0, PT, |R4|, 126, PT 
+ LOP32I.AND R5, R4, 0x80000000 
+ @P0 LOP32I.OR R4, R5, 0x42fc0000 
+ FFMA.FTZ R5, R4, c[0x2][0x0], R7 
+ FFMA.FTZ R5, R4, c[0x2][0x4], R5 
+ FMUL32I.FTZ R5, R5, 1.4426950216293334961 
+ FADD32I.FTZ R4, R4, 12583037 
+ RRO.EX2 R7, R5 
+ MUFU.EX2 R5, R7 
+ SHL R4, R4, 0x17 
+ FMUL.FTZ R5, R4, R5 
+ MUFU.RCP R3, R5 
+ FSETP.GE.FTZ.AND P0, PT, |R2|, 90, PT 
+ FMUL.FTZ R3, R3, 0.125 
+ FFMA.FTZ R3, R5, 2, -R3 
+ SEL R3, R3, c[0x2][0x8], !P0 
+.L_x_22:
+ LOP3.LUT R4, R3, c[0x2][0x18], R2, 0xf8 
+ SYNC                                             (*"BRANCH_TARGETS .L_x_9"*)        
+.L_x_10:
+ FMUL.FTZ R3, R2, R2 
+ MOV32I R4, 0x394fff49 
+ FFMA.FTZ R4, R3.reuse, c[0x2][0xc], R4 
+ FFMA.FTZ R4, R3.reuse, R4, c[0x2][0x10] 
+ FFMA.FTZ R4, R3.reuse, R4, c[0x2][0x14] 
+ FMUL.FTZ R4, R3, R4 
+.L_x_24:
+ FFMA.FTZ R4, R2, R4, R2 
+ SYNC                                             (*"BRANCH_TARGETS .L_x_9"*)        
+.L_x_9:
+ LEA R2.CC, R0.reuse, c[0x0][0x148], 0x2 
+ LEA.HI.X R3, R0, c[0x0][0x14c], R6, 0x2 
+ STG.E [R2], R4 
+ EXIT 
+.L_x_11:
+ BRA `(.L_x_11) 
+ NOP
+ NOP
+ NOP
+.L_x_35:
+_Z12gpuVectorTanPfS_j:
+ MOV R1, c[0x0][0x20] 
+ S2R R0, SR_CTAID.X 
+ S2R R2, SR_TID.X 
+ XMAD.MRG R3, R0.reuse, c[0x0] [0x8].H1, RZ 
+ XMAD R2, R0.reuse, c[0x0] [0x8], R2 
+ XMAD.PSL.CBCC R0, R0.H1, R3.H1, R2 
+ ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x150], PT 
+ NOP 
+ @P0 EXIT 
+ SHL R4, R0.reuse, 0x2 
+ SHR R5, R0, 0x1e 
+ IADD R2.CC, R4, c[0x0][0x140] 
+ IADD.X R3, R5, c[0x0][0x144] 
+ LDG.E R2, [R2] 
+ IADD R4.CC, R4, c[0x0][0x148] 
+ IADD.X R5, R5, c[0x0][0x14c] 
+ RRO.SINCOS R8, R2 
+ MUFU.COS R6, R8 
+ MUFU.SIN R0, R8 
+ MUFU.RCP R6, R6 
+ FMUL.FTZ R7, R0, R6 
+ STG.E [R4], R7 
+ NOP 
+ EXIT 
+.L_x_12:
+ BRA `(.L_x_12) 
+ NOP
+ NOP
+ NOP
+ NOP
+ NOP
+.L_x_36:
+_Z12gpuVectorCosPfS_j:
+ MOV R1, c[0x0][0x20] 
+ S2R R0, SR_CTAID.X 
+ S2R R2, SR_TID.X 
+ XMAD.MRG R3, R0.reuse, c[0x0] [0x8].H1, RZ 
+ XMAD R2, R0.reuse, c[0x0] [0x8], R2 
+ XMAD.PSL.CBCC R0, R0.H1, R3.H1, R2 
+ ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x150], PT 
+ NOP 
+ @P0 EXIT 
+ SHL R4, R0.reuse, 0x2 
+ SHR R0, R0, 0x1e 
+ IADD R2.CC, R4, c[0x0][0x140] 
+ IADD.X R3, R0, c[0x0][0x144] 
+ LDG.E R2, [R2] 
+ IADD R4.CC, R4, c[0x0][0x148] 
+ IADD.X R5, R0, c[0x0][0x14c] 
+ RRO.SINCOS R6, R2 
+ MUFU.COS R6, R6 
+ STG.E [R4], R6 
+ NOP 
+ EXIT 
+.L_x_13:
+ BRA `(.L_x_13) 
+ NOP
+ NOP
+.L_x_37:
+_Z12gpuVectorSinPfS_j:
+ MOV R1, c[0x0][0x20] 
+ S2R R0, SR_CTAID.X 
+ S2R R2, SR_TID.X 
+ XMAD.MRG R3, R0.reuse, c[0x0] [0x8].H1, RZ 
+ XMAD R2, R0.reuse, c[0x0] [0x8], R2 
+ XMAD.PSL.CBCC R0, R0.H1, R3.H1, R2 
+ ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x150], PT 
+ NOP 
+ @P0 EXIT 
+ SHL R4, R0.reuse, 0x2 
+ SHR R0, R0, 0x1e 
+ IADD R2.CC, R4, c[0x0][0x140] 
+ IADD.X R3, R0, c[0x0][0x144] 
+ LDG.E R2, [R2] 
+ IADD R4.CC, R4, c[0x0][0x148] 
+ IADD.X R5, R0, c[0x0][0x14c] 
+ RRO.SINCOS R6, R2 
+ MUFU.SIN R6, R6 
+ STG.E [R4], R6 
+ NOP 
+ EXIT 
+.L_x_14:
+ BRA `(.L_x_14) 
+ NOP
+ NOP
+.L_x_38:
+_Z14gpuVectorClampPfS_S_S_j:
+ MOV R1, c[0x0][0x20] 
+ S2R R0, SR_CTAID.X 
+ S2R R2, SR_TID.X 
+ XMAD.MRG R3, R0.reuse, c[0x0] [0x8].H1, RZ 
+ XMAD R2, R0.reuse, c[0x0] [0x8], R2 
+ XMAD.PSL.CBCC R0, R0.H1, R3.H1, R2 
+ ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x160], PT 
+ NOP 
+ @P0 EXIT 
+ SHL R8, R0.reuse, 0x2 
+ SHR R0, R0, 0x1e 
+ IADD R4.CC, R8, c[0x0][0x140] 
+ IADD.X R5, R0, c[0x0][0x144] 
+ IADD R2.CC, R8, c[0x0][0x148] 
+ LDG.E R4, [R4]         
+ IADD.X R3, R0, c[0x0][0x14c] 
+ IADD R6.CC, R8, c[0x0][0x150] 
+ LDG.E R2, [R2]         
+ IADD.X R7, R0, c[0x0][0x154] 
+ LDG.E R6, [R6] 
+ IADD R8.CC, R8, c[0x0][0x158] 
+ IADD.X R9, R0, c[0x0][0x15c] 
+ FMNMX.FTZ R0, R2, R4, PT 
+ FMNMX.FTZ R10, R0, R6, !PT 
+ STG.E [R8], R10 
+ EXIT 
+.L_x_15:
+ BRA `(.L_x_15) 
+ NOP
+ NOP
+ NOP
+.L_x_39:
+_Z12gpuVectorMaxPfS_S_j:
+ MOV R1, c[0x0][0x20] 
+ S2R R0, SR_CTAID.X 
+ S2R R2, SR_TID.X 
+ XMAD.MRG R3, R0.reuse, c[0x0] [0x8].H1, RZ 
+ XMAD R2, R0.reuse, c[0x0] [0x8], R2 
+ XMAD.PSL.CBCC R0, R0.H1, R3.H1, R2 
+ ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x158], PT 
+ NOP 
+ @P0 EXIT 
+ SHL R6, R0.reuse, 0x2 
+ SHR R0, R0, 0x1e 
+ IADD R4.CC, R6, c[0x0][0x140] 
+ IADD.X R5, R0, c[0x0][0x144] 
+ IADD R2.CC, R6, c[0x0][0x148] 
+ LDG.E R4, [R4]         
+ IADD.X R3, R0, c[0x0][0x14c] 
+ LDG.E R2, [R2] 
+ IADD R6.CC, R6, c[0x0][0x150] 
+ IADD.X R7, R0, c[0x0][0x154] 
+ FMNMX.FTZ R0, R2, R4, !PT 
+ STG.E [R6], R0 
+ NOP 
+ EXIT 
+.L_x_16:
+ BRA `(.L_x_16) 
+.L_x_40:
+_Z12gpuVectorMinPfS_S_j:
+ MOV R1, c[0x0][0x20] 
+ S2R R0, SR_CTAID.X 
+ S2R R2, SR_TID.X 
+ XMAD.MRG R3, R0.reuse, c[0x0] [0x8].H1, RZ 
+ XMAD R2, R0.reuse, c[0x0] [0x8], R2 
+ XMAD.PSL.CBCC R0, R0.H1, R3.H1, R2 
+ ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x158], PT 
+ NOP 
+ @P0 EXIT 
+ SHL R6, R0.reuse, 0x2 
+ SHR R0, R0, 0x1e 
+ IADD R4.CC, R6, c[0x0][0x140] 
+ IADD.X R5, R0, c[0x0][0x144] 
+ IADD R2.CC, R6, c[0x0][0x148] 
+ LDG.E R4, [R4]         
+ IADD.X R3, R0, c[0x0][0x14c] 
+ LDG.E R2, [R2] 
+ IADD R6.CC, R6, c[0x0][0x150] 
+ IADD.X R7, R0, c[0x0][0x154] 
+ FMNMX.FTZ R0, R2, R4, PT 
+ STG.E [R6], R0 
+ NOP 
+ EXIT 
+.L_x_17:
+ BRA `(.L_x_17) 
+.L_x_41:
+_Z12gpuVectorDivPfS_S_j:
+ MOV R1, c[0x0][0x20] 
+ S2R R0, SR_CTAID.X 
+ S2R R2, SR_TID.X 
+ XMAD.MRG R3, R0.reuse, c[0x0] [0x8].H1, RZ 
+ XMAD R2, R0.reuse, c[0x0] [0x8], R2 
+ XMAD.PSL.CBCC R0, R0.H1, R3.H1, R2 
+ ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x158], PT 
+ NOP 
+ @P0 EXIT 
+ SHL R6, R0.reuse, 0x2 
+ SHR R0, R0, 0x1e 
+ IADD R2.CC, R6.reuse, c[0x0][0x148] 
+ IADD.X R3, R0.reuse, c[0x0][0x14c] 
+ IADD R4.CC, R6, c[0x0][0x140] 
+ LDG.E R2, [R2]         
+ IADD.X R5, R0, c[0x0][0x144] 
+ LDG.E R4, [R4] 
+ IADD R6.CC, R6, c[0x0][0x150] 
+ IADD.X R7, R0, c[0x0][0x154] 
+ DEPBAR.LE SB5, 0x1 
+ MUFU.RCP R9, R2 
+ FMUL.FTZ R0, R4, R9 
+ STG.E [R6], R0 
+ NOP 
+ EXIT 
+.L_x_18:
+ BRA `(.L_x_18) 
+ NOP
+ NOP
+ NOP
+ NOP
+.L_x_42:
+_Z12gpuVectorMulPfS_S_j:
+ MOV R1, c[0x0][0x20] 
+ S2R R0, SR_CTAID.X 
+ S2R R2, SR_TID.X 
+ XMAD.MRG R3, R0.reuse, c[0x0] [0x8].H1, RZ 
+ XMAD R2, R0.reuse, c[0x0] [0x8], R2 
+ XMAD.PSL.CBCC R0, R0.H1, R3.H1, R2 
+ ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x158], PT 
+ NOP 
+ @P0 EXIT 
+ SHL R6, R0.reuse, 0x2 
+ SHR R0, R0, 0x1e 
+ IADD R4.CC, R6.reuse, c[0x0][0x140] 
+ IADD.X R5, R0.reuse, c[0x0][0x144] 
+ IADD R2.CC, R6, c[0x0][0x148] 
+ LDG.E R4, [R4]         
+ IADD.X R3, R0, c[0x0][0x14c] 
+ LDG.E R2, [R2] 
+ IADD R6.CC, R6, c[0x0][0x150] 
+ IADD.X R7, R0, c[0x0][0x154] 
+ FMUL.FTZ R0, R2, R4 
+ STG.E [R6], R0 
+ NOP 
+ EXIT 
+.L_x_19:
+ BRA `(.L_x_19) 
+.L_x_43:
+_Z12gpuVectorSubPfS_S_j:
+ MOV R1, c[0x0][0x20] 
+ S2R R0, SR_CTAID.X 
+ S2R R2, SR_TID.X 
+ XMAD.MRG R3, R0.reuse, c[0x0] [0x8].H1, RZ 
+ XMAD R2, R0.reuse, c[0x0] [0x8], R2 
+ XMAD.PSL.CBCC R0, R0.H1, R3.H1, R2 
+ ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x158], PT 
+ NOP 
+ @P0 EXIT 
+ SHL R6, R0.reuse, 0x2 
+ SHR R0, R0, 0x1e 
+ IADD R4.CC, R6.reuse, c[0x0][0x140] 
+ IADD.X R5, R0.reuse, c[0x0][0x144] 
+ IADD R2.CC, R6, c[0x0][0x148] 
+ LDG.E R4, [R4]         
+ IADD.X R3, R0, c[0x0][0x14c] 
+ LDG.E R2, [R2] 
+ IADD R6.CC, R6, c[0x0][0x150] 
+ IADD.X R7, R0, c[0x0][0x154] 
+ FADD.FTZ R0, -R2, R4 
+ STG.E [R6], R0 
+ NOP 
+ EXIT 
+.L_x_20:
+ BRA `(.L_x_20) 
+.L_x_44:
+_Z12gpuVectorAddPfS_S_j:
+ MOV R1, c[0x0][0x20] 
+ S2R R0, SR_CTAID.X 
+ S2R R2, SR_TID.X 
+ XMAD.MRG R3, R0.reuse, c[0x0] [0x8].H1, RZ 
+ XMAD R2, R0.reuse, c[0x0] [0x8], R2 
+ XMAD.PSL.CBCC R0, R0.H1, R3.H1, R2 
+ ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x158], PT 
+ NOP 
+ @P0 EXIT 
+ SHL R6, R0.reuse, 0x2 
+ SHR R0, R0, 0x1e 
+ IADD R4.CC, R6.reuse, c[0x0][0x140] 
+ IADD.X R5, R0.reuse, c[0x0][0x144] 
+ IADD R2.CC, R6, c[0x0][0x148] 
+ LDG.E R4, [R4]         
+ IADD.X R3, R0, c[0x0][0x14c] 
+ LDG.E R2, [R2] 
+ IADD R6.CC, R6, c[0x0][0x150] 
+ IADD.X R7, R0, c[0x0][0x154] 
+ FADD.FTZ R0, R2, R4 
+ STG.E [R6], R0 
+ NOP 
+ EXIT 
+.L_x_21:
+ BRA `(.L_x_21) 
+.L_x_45:
