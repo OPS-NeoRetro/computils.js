@@ -4,4 +4,6 @@ This document folder includes unofficial documentation for HIP, HIP Fatbins, AMD
 
 ## Additional Links
 
-[HIP documentation](hip/)
+- [HIP documentation](hip/)
+- [AMDGPU/ROCm/HIP ELF file format documentation](hip/elf/)
+- [AMD Radeon RX 6800/6850/6900/6950 (XT) technical documentation](gfx1030/)
