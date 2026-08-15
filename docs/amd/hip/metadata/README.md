@@ -6,8 +6,8 @@ HIP object code metadata can appear as a dedicated data section in AMDGPU/HIP/RO
 
 Technically, they are MessagePack (.msgpack) files or in MessagePack format - the same format as Flax models. Think of it as binary JSON. They are usually serialized objects with a `solutions` or `amdhsa.kernels` header.
 
-## *DISCLAIMER!!!*
-## *DO NOT MODIFY .DAT FILES WITH EXTREMELY GARBLED TEXT OR A TON OF NULLS AMD FOREIGN CHARACTERS!!!*
+*DISCLAIMER!!!*
+*DO NOT MODIFY .DAT FILES WITH EXTREMELY GARBLED TEXT OR A TON OF NULLS AMD FOREIGN CHARACTERS!!!*
 
 ## Additional links
 
