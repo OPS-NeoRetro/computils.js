@@ -6,7 +6,7 @@ This is documentation on the AMD ROCm/HIP .hipbin/.hipfb file format made by me 
 
 .hipfb files or HIP Fatbin files are ROCm fat multi-GPU-generation binaries usually found inside DLLs, EXEs, .so files and ELF files, or as separate files with .hipbin, .hipfb, .co or .dat file name extensions, or no file name extension at all. They contain compiled AMD ROCm code that can be executed directly by the GPU. AMD ROCm is extremely similar to CUDA because the HIP programming language is essentially a CUDA clone with renamed driver symbols.
 
-Technically, they are Clang offload bundles (files with magic number `__CLANG_OFFLOAD_BUNDLE__`). They serve the same purpose as oneAPI fat binary files. Instead of containing 32-bit and 64-bit SPIR-V or LLVM IR files like oneAPI Fatbins, AMD HIP Fatbins contain one or more ELFs each containing AMD GPU machine code/shader microcode (though "microcode" is a misnomer) for a specific line of AMD GPUs supporting ROCm. 
+Technically, they are Clang offload bundles (files with magic `__CLANG_OFFLOAD_BUNDLE__`). They serve the same purpose as oneAPI fat binary files. Instead of containing 32-bit and 64-bit SPIR-V or LLVM IR files like oneAPI Fatbins, AMD HIP Fatbins contain one or more ELFs each containing AMD GPU machine code/shader microcode (though "microcode" is a misnomer) for a specific line of AMD GPUs supporting ROCm. 
 
 ## Additional Links
 
